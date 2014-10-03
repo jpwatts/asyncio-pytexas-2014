@@ -49,11 +49,7 @@ def main():
     executor = concurrent.futures.ProcessPoolExecutor()
     loop.set_default_executor(executor)
 
-    server_future = loop.create_server(
-        lambda: WorkHandler(),
-        ADDRESS,
-        PORT
-    )
+    server_future = loop.create_server(WorkHandler, ADDRESS, PORT)
     loop.run_until_complete(server_future)
     try:
         loop.run_forever()

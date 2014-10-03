@@ -44,11 +44,7 @@ class WorkHandler(aiohttp.server.ServerHttpProtocol):
 
 def main():
     loop = asyncio.get_event_loop()
-    server_future = loop.create_server(
-        lambda: WorkHandler(),
-        ADDRESS,
-        PORT
-    )
+    server_future = loop.create_server(WorkHandler, ADDRESS, PORT)
     loop.run_until_complete(server_future)
     try:
         loop.run_forever()
