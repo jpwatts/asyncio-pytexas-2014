@@ -32,9 +32,8 @@ class WorkHandler(aiohttp.server.ServerHttpProtocol):
     @asyncio.coroutine
     def handle_request(self, message, payload):
         work.do_something_expensive()
-        code = 200
         content = "{}\r\n".format(CONTENT).encode(ENCODING)
-        response = aiohttp.Response(self.writer, code, http_version=message.version)
+        response = aiohttp.Response(self.writer, 200, http_version=message.version)
         response.add_header("Content-Type", "text/plain; charset={}".format(ENCODING))
         response.add_header("Content-Length", str(len(content)))
         response.send_headers()
