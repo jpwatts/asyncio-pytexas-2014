@@ -1,9 +1,11 @@
 # Building concurrent network applications with `asyncio`
 
-This repository contains the code examples used in my talk on [`asyncio`](https://docs.python.org/3/library/asyncio.html).
+This repository contains code examples used in my talk on [`asyncio`](https://docs.python.org/3/library/asyncio.html), presented at [PyTexas 2014](https://www.pytexas.org/2014/talks/69/).
 
-  * [Summary from PyTexas 2014](https://www.pytexas.org/2014/talks/69/)
-  * [Video from PyTexas 2014](http://pyvideo.org/video/3179/building-concurrent-network-applications-with-asy)
+<img alt="An example of an asynchronous application in real life" height="384" width="512" src="http://static.joelwatts.net/asyncio-pytexas-2014/example.jpg" />
+
+  * [Slides](http://static.joelwatts.net/asyncio-pytexas-2014/slides.pdf) ([with notes](http://static.joelwatts.net/asyncio-pytexas-2014/slides-notes.pdf))
+  * [Video](http://pyvideo.org/video/3179/building-concurrent-network-applications-with-asy)
 
 
 ## Requirements
@@ -41,7 +43,7 @@ If you have an I/O-bound task, but are unable to re-implement the expensive part
 
 ### Asynchronous with process pool
 
-Unlike I/O-bound tasks, there's no benefit to converting CPU-bound tasks (e.g. number crunching or image conversion) to be non-blocking coroutines. Instead you should keep your existing blocking functions intact, but run them in a processes pool.
+Unlike I/O-bound tasks, there's no benefit to converting CPU-bound tasks (e.g. number crunching or image conversion) to be non-blocking coroutines. Instead, you should keep your existing blocking functions intact, but run them in a processes pool.
 
     $ python -m examples.server_async2_process
 
