@@ -12,7 +12,8 @@ This repository contains code examples used in my talk on [`asyncio`](https://do
 
 Python 3.4 is required and the examples make use of the [`aiohttp`](https://github.com/KeepSafe/aiohttp) library.
 
-    $ mkvirtualenv --python=/usr/local/bin/python3.4 asyncio-examples
+    $ cd /path/to/asyncio-pytexas-2014
+    $ mkvirtualenv --python=/usr/local/bin/python3.4 asyncio-pytexas-2014
     $ pip install -r requirements.txt
 
 ## Running the examples
@@ -43,9 +44,9 @@ If you have an I/O-bound task, but are unable to re-implement the expensive part
 
 ### Asynchronous with process pool
 
-Unlike I/O-bound tasks, there's no benefit to converting CPU-bound tasks (e.g. number crunching or image conversion) to be non-blocking coroutines. Instead, you should keep your existing blocking functions intact, but run them in a processes pool.
+Unlike I/O-bound tasks, there's no benefit to converting CPU-bound tasks (e.g. number crunching or image conversion) to be non-blocking coroutines. Instead, you should keep your existing blocking functions intact, but run them in a process pool.
 
-    $ python -m examples.server_async2_process
+    $ python -m examples.server_async2_executor_process
 
 
 ## Testing the examples
